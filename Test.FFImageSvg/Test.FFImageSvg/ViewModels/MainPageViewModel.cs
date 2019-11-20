@@ -1,10 +1,5 @@
 ﻿using Prism.Commands;
-using Prism.Mvvm;
 using Prism.Navigation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Test.FFImageSvg.ViewModels
 {
@@ -14,6 +9,15 @@ namespace Test.FFImageSvg.ViewModels
         : base(navigationService)
     {
       Title = "Main Page";
+    }
+
+    public string Source => "resource://Test.FFImageSvg.Resources.sample.svg";
+
+    public DelegateCommand CmdClicked => new DelegateCommand(OnClicked);
+
+    private void OnClicked()
+    {
+      DisplayAlert("Clicked", "Yay Clicked it");
     }
   }
 }

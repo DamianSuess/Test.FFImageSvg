@@ -5,8 +5,28 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\replace.svg" />
+    <None Remove="Resources\sample.svg" />
+    <None Remove="Resources\tenor.gif" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.Forms" Version="4.3.0.991211" />
     <PackageReference Include="Prism.DryIoc.Forms" Version="7.2.0.1367" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\replace.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\sample.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\tenor.gif" />
   </ItemGroup>
 
 </Project>

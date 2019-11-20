@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Test.FFImageSvg.ViewModels;
 using Xamarin.Forms;
 
 namespace Test.FFImageSvg.Views
@@ -12,6 +8,11 @@ namespace Test.FFImageSvg.Views
     public MainPage()
     {
       InitializeComponent();
+
+      MessagingCenter.Subscribe<ViewModelBase, string[]>(this, "DisplayAlert", (sender, values) =>
+      {
+        DisplayAlert(values[0], values[1], "Ok");
+      });
     }
   }
 }

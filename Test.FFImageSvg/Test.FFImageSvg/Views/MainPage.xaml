@@ -1,11 +1,46 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:img="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:svg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
              x:Class="Test.FFImageSvg.Views.MainPage"
              Title="{Binding Title}">
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <svg:SvgImageSourceConverter x:Key="SvgImageSourceConverter" />
+    </ResourceDictionary>
+  </ContentPage.Resources>
+  <!--
+    Samples:
+    https://github.com/luberda-molinet/FFImageLoading/tree/master/samples/ImageLoading.Forms.Sample/Shared/Pages
+  -->
+  <ContentPage.Content>
+    <ScrollView>
+      <StackLayout VerticalOptions="CenterAndExpand">
+        <Label Text="Sample FFImageLoading SVG!" />
 
-    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-        <Label Text="Welcome to Xamarin Forms and Prism!" />
-    </StackLayout>
+        <!--  Load from platform's resource (droid/uwp):  -->
+        <svg:SvgCachedImage Source="sample.svg" />
 
+        <!--  Load from our XF project's resources  -->
+        <svg:SvgCachedImage HeightRequest="50"
+                            Source="resource://Test.FFImageSvg.Resources.sample.svg"
+                            WidthRequest="50" />
+
+        <!--  Binding  -->
+        <img:CachedImage HeightRequest="100"
+                         Source="{Binding Source, Converter={StaticResource SvgImageSourceConverter}}"
+                         WidthRequest="100" />
+
+        <!--  Clickable  -->
+        <svg:SvgCachedImage HeightRequest="150"
+                            Source="resource://Test.FFImageSvg.Resources.sample.svg"
+                            WidthRequest="150">
+          <svg:SvgCachedImage.GestureRecognizers>
+            <TapGestureRecognizer Command="{Binding CmdClicked}" NumberOfTapsRequired="1" />
+          </svg:SvgCachedImage.GestureRecognizers>
+        </svg:SvgCachedImage>
+      </StackLayout>
+    </ScrollView>
+  </ContentPage.Content>
 </ContentPage>
