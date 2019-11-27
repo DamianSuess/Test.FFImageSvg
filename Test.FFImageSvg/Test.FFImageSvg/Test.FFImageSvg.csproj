@@ -5,9 +5,29 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\error.png" />
+    <None Remove="Resources\loading.png" />
     <None Remove="Resources\replace.svg" />
     <None Remove="Resources\sample.svg" />
+    <None Remove="Resources\sample2.svg" />
+    <None Remove="Resources\Signal-Connected.svg" />
     <None Remove="Resources\tenor.gif" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\loading.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\error.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\sample2.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Signal-Connected.svg" />
   </ItemGroup>
 
   <ItemGroup>

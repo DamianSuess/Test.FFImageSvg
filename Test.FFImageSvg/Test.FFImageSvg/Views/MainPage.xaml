@@ -40,6 +40,20 @@
             <TapGestureRecognizer Command="{Binding CmdClicked}" NumberOfTapsRequired="1" />
           </svg:SvgCachedImage.GestureRecognizers>
         </svg:SvgCachedImage>
+
+        <!-- Color Changing SVG Test -->
+        <!-- https://github.com/luberda-molinet/FFImageLoading/wiki/SVG-support -->
+        <!-- ReplaceStringMap="{Binding SvgColorMap}" -->
+        <Label Text="Color Changing SVG" />
+        <svg:SvgCachedImage HeightRequest="50"
+                            Source="resource://Test.FFImageSvg.Resources.Signal-Connected.svg"
+                            ReplaceStringMap="{Binding SvgColorMap}"
+                            WidthRequest="50" />
+
+        <StackLayout Orientation="Horizontal">
+          <Button Text="Black" Command="{Binding CmdColorBlack}" />
+          <Button Text="Red" Command="{Binding CmdColorRed}" />
+        </StackLayout>
       </StackLayout>
     </ScrollView>
   </ContentPage.Content>
